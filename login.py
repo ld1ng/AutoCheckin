@@ -4,7 +4,7 @@ import json
 from bs4 import BeautifulSoup
 from encrypt import AESencrypt
 
-# 登录信息门户,返回登录后的session
+# 登录信息门户
 def login(cardnum, password):
     ss = requests.Session()
     form = {"username": cardnum}
@@ -26,10 +26,10 @@ def login(cardnum, password):
     # 登录认证
     res = ss.post(url, data=form)
 
-    # 登录ehall(存在多次302)
+    # 登录综合服务大厅sessionid
     res = ss.get('http://ehall.seu.edu.cn/login?service=http://ehall.seu.edu.cn/new/index.html')
     # print(res)
-    # 获取登录信息（验证结果）
+    # 获取登录信息
     res = ss.get('http://ehall.seu.edu.cn/jsonp/userDesktopInfo.json')
 
     json_res = json.loads(res.text)

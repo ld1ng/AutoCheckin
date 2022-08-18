@@ -99,11 +99,11 @@ def doReport(session, mode=''):
 
 # 获取昨日填报信息
 def get_report_data(ss):
-    # 进入填报页面（获取sessionid）
-    ss.get("http://ehall.seu.edu.cn/appShow?appId=5821102911870447")# 每日健康申报
-    latest_url = "http://ehall.seu.edu.cn/qljfwapp2/sys/lwReportEpidemicSeu/modules/dailyReport/getLatestDailyReportData.do"# 最近的申报信息
-    wid_url = "http://ehall.seu.edu.cn/qljfwapp2/sys/lwReportEpidemicSeu/mobile/dailyReport/getMyTodayReportWid.do" #今天的申报信息wid
-    userinfo_url = "http://ehall.seu.edu.cn/qljfwapp2/sys/lwReportEpidemicSeu/api/base/getUserDetailDB.do" # 用户信息
+    # 进入填报页面sessionid
+    ss.get("http://ehall.seu.edu.cn/appShow?appId=5821102911870447")
+    latest_url = "http://ehall.seu.edu.cn/qljfwapp2/sys/lwReportEpidemicSeu/modules/dailyReport/getLatestDailyReportData.do"
+    wid_url = "http://ehall.seu.edu.cn/qljfwapp2/sys/lwReportEpidemicSeu/mobile/dailyReport/getMyTodayReportWid.do" 
+    userinfo_url = "http://ehall.seu.edu.cn/qljfwapp2/sys/lwReportEpidemicSeu/api/base/getUserDetailDB.do" 
     last_res = ss.get(latest_url)
     wid_res = ss.get(wid_url)
     userinfo_res = ss.post(userinfo_url)
@@ -132,7 +132,6 @@ def get_report_data(ss):
         # tempFormData['PHONE_NUMBER'] = userInfo['PHONE_NUMBER']
         tempFormData['IDCARD_NO'] = userInfo['IDENTITY_CREDENTIALS_NO']
         tempFormData['GENDER_CODE'] = userInfo['GENDER_CODE']
-
         # tempFormData['CLASS_CODE'] = userInfo['CLASS_CODE']
         # tempFormData['CLASS'] = userInfo['CLASS']
         tempFormData['RYSFLB'] = userInfo['RYSFLB']        # 身份类别

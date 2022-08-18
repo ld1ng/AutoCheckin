@@ -1,1 +1,1 @@
-echo '30 8 * * * cd /root/AutoCheckin/; /usr/bin/python dayReport.py >> log.txt 2>&1' >> /var/spool/cron/crontabs/root
+echo '30 8 * * * cd /root/YourPath/; /usr/bin/python dayReport.py >> log.txt 2>&1' >> /var/spool/cron/crontabs/root
