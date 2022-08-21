@@ -114,7 +114,12 @@ def get_report_data(ss):
         try:
             wid_data = json.loads(
                 wid_res.text)['datas']['getMyTodayReportWid']['rows'][0]
-            tempFormData.update(wid_data)
+            tempFormData.update(last_report)
+            tempFormData['DZ_DQWZ_QX'] = last_report['LOCATION_COUNTY_CODE_DISPLAY']
+            tempFormData['DZ_DQWZ_SF'] = last_report['LOCATION_PROVINCE_CODE_DISPLAY']
+            tempFormData['DZ_DQWZ_CS'] = last_report['LOCATION_CITY_CODE_DISPLAY']
+            tempFormData['DZ_DQWZ'] = last_report['LOCATION_PROVINCE_CODE_DISPLAY'] + ',' + last_report['LOCATION_CITY_CODE_DISPLAY'] + ',' + last_report['LOCATION_COUNTY_CODE_DISPLAY']
+
         except Exception:
             print('【getMyTodayReportWid FAILED】')
 
