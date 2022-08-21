@@ -12,6 +12,7 @@ Reference: [SEUAutoLogin](https://github.com/luzy99/SEUAutoLogin)
 - 邮件通知
 - 多用户部署
 - 日志文件
+- 添加「当前位置」
 - encrypot.js逆向
 
 ## 使用
