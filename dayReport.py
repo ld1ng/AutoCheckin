@@ -9,6 +9,7 @@ from bs4 import BeautifulSoup
 from login import login
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from geopy.geocoders import Nominatim
 
 # 加载全局配置
 with open("./config.json", "r", encoding="utf-8") as f:
@@ -119,7 +120,10 @@ def get_report_data(ss):
             tempFormData['DZ_DQWZ_SF'] = last_report['LOCATION_PROVINCE_CODE_DISPLAY']
             tempFormData['DZ_DQWZ_CS'] = last_report['LOCATION_CITY_CODE_DISPLAY']
             tempFormData['DZ_DQWZ'] = last_report['LOCATION_PROVINCE_CODE_DISPLAY'] + ', ' + last_report['LOCATION_CITY_CODE_DISPLAY'] + ', ' + last_report['LOCATION_COUNTY_CODE_DISPLAY']
-
+            geolocator = Nominatim(user_agent='GeoAuto')
+            location = geolocator.geocode(tempFormData['DZ_DQWZ'])
+            tempFormData['DZ_DQWZ_JD'] = location.longitude
+            tempFormData['DZ_DQWZ_WD'] = location.latitude
         except Exception:
             print('【getMyTodayReportWid FAILED】')
 
