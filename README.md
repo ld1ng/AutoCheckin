@@ -14,6 +14,7 @@ Reference: [SEUAutoLogin](https://github.com/luzy99/SEUAutoLogin)
 - 日志文件
 - 添加「当前位置」
 - encrypot.js逆向
+- 新增抢讲座功能
 
 ## 使用
 
