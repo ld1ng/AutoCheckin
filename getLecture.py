@@ -73,7 +73,7 @@ def startRob(s):
         lecINFO(idx,lecture)
         if(lecture['JZDD'] == "钉钉" or lecture['JZDD'] == "腾讯会议" or lecture['JZDD'] =="双创中心网站（https://www.seuiec.com）"):
             if(not checkdate(lecture)):
-                print("预约未开放！\n")
+                print("[*] 预约未开放！\n")
                 sys.exit(0)
             v_code, _ = get_code(s)
             # print(v_code)
